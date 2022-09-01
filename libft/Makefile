@@ -11,8 +11,9 @@ END_C	=	\033[0m
 
 ### FILES AND DIRECTORIES ###
 NAME = libft.a
+GC = gcc
 CFLAGS = -Wall -Werror -Wextra
-INCLUDES = include
+INCLUDES = ../include
 
 DIR_IS = ft_is/
 FILES_IS = ft_isalnum ft_isalpha ft_isascii\
@@ -70,7 +71,7 @@ $(NAME): $(FILES_OBJ)
 	@echo "[$(BLUE)> LIBFT LIBRARY COMPILED $(END_C)][$(GREEN) SUCCESS! $(END_C)] $(NAME)"
 
 $(DIR_OBJ)%.o: $(DIR_SRC)%.c | $(DIRECTORIES)
-	@gcc $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	@$(GC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 	@echo "[$(YELLOW) *LIBFT* COMPILED OBJECT $(END_C)][$(GREEN)-->$(END_C)] $@"
 
 $(DIRECTORIES):
@@ -95,6 +96,5 @@ clean:
 fclean: clean
 	@rm -rf $(NAME)
 	@echo "[$(RED) -LIBFT- LIBRARY DELETED $(END_C)][$(GREEN) CLEANED SUCCESS! $(END_C)]"
-
 
 re:	fclean all
