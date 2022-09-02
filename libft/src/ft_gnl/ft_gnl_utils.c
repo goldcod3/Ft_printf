@@ -6,7 +6,7 @@
 /*   By: lgomes-o <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:39:28 by lgomes-o          #+#    #+#             */
-/*   Updated: 2022/07/16 13:52:37 by lgomes-o         ###   ########.fr       */
+/*   Updated: 2022/09/02 15:17:46 by lgomes-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	ft_gnlstrlen(char *str)
 
 char	*ft_gnlstrchr(char *str, int c)
 {
-	size_t i;
+	size_t	i;
 
 	if (!str)
 		return (NULL);

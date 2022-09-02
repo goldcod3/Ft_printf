@@ -6,12 +6,13 @@
 /*   By: lgomes-o <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:45:06 by lgomes-o          #+#    #+#             */
-/*   Updated: 2022/07/16 13:50:00 by lgomes-o         ###   ########.fr       */
+/*   Updated: 2022/09/02 15:16:25 by lgomes-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GNL_H
+
+# define GNL_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1

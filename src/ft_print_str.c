@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgomes-o <lgomes-o@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: lgomes-o <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 15:50:11 by lgomes-o          #+#    #+#             */
-/*   Updated: 2022/09/02 15:18:11 by lgomes-o         ###   ########.fr       */
+/*   Created: 2022/09/02 02:08:23 by lgomes-o          #+#    #+#             */
+/*   Updated: 2022/09/02 15:28:41 by lgomes-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+#include "printf.h"
+
+size_t	printf_char(char c)
+{
+	return (write(1, &c, 1));
+}
+
+size_t	printf_str(char *str)
 {
 	size_t	i;
 
-	if (!str)
-		return (NULL);
-	if (c == '\0')
-		return ((char *)str);
 	i = 0;
-	while (str[i] != '\0')
+	while (*(str + i))
 	{
-		if (str[i] == (char)c)
-			return ((char *)&str[i]);
+		write(1, (str + i), 1);
 		i++;
 	}
-	return (NULL);
+	return (i);
 }

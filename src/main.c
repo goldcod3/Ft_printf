@@ -10,10 +10,10 @@ int main(void)
     int num;
     int unum;
 
-    c = 'N';
+    c = 'Y';
     string = "Hola mundo, que tal?";
     num = -1293769182;
-    unum = 12340;
+    unum = 444668;
     
     size = 0;
     size_ft = 0;
@@ -50,6 +50,20 @@ int main(void)
     size = printf("%u", unum);
     printf("\n%i\n", size);
 
-    
+    ft_printf("TEST HEXmin ft_printf: hexm -> ");
+    size_ft = ft_printf("%x", unum);
+    printf("\n%i\n", size_ft);
+
+    ft_printf("TEST HEXmin printf: hexm -> ");
+    size = printf("%x", unum);
+    printf("\n%i\n", size);
+
+    ft_printf("TEST HEXMAY ft_printf: hexM -> ");
+    size_ft = ft_printf("%X", unum);
+    printf("\n%i\n", size_ft);
+
+    ft_printf("TEST HEXMAY printf: hexM -> ");
+    size = printf("%X", unum);
+    printf("\n%i\n", size);
 
 }
