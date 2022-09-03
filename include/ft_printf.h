@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgomes-o <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
+#ifndef FT_PRINTF_H
 
-# define PRINTF_H
+# define FT_PRINTF_H
 
 # include "libft.h"
 # include <stdarg.h>
@@ -20,11 +20,11 @@
 int			ft_printf(const char *str, ...);
 size_t		printf_char(char c);
 size_t		printf_str(char *str);
+size_t		printf_ptr(unsigned long lnum);
 size_t		printf_integer(int num);
 size_t		printf_unsigned(unsigned int unum);
 size_t		printf_hex(unsigned int num, const char format);
 
 char		*ft_utoa(unsigned int num);
-size_t		ft_unsignedlen(unsigned int num);
 
 #endif

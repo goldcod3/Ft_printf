@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 size_t	printf_char(char c)
 {
 	return (write(1, &c, 1));
 }
 
-size_t	printf_str(char *str)
+static size_t	print_str(char *str)
 {
 	size_t	i;
 
@@ -28,4 +28,15 @@ size_t	printf_str(char *str)
 		i++;
 	}
 	return (i);
+}
+
+size_t	printf_str(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (str == NULL)
+		return (print_str("(null)"));
+	else
+		return (print_str(str));
 }

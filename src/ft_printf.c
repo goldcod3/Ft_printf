@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	printf_format(char format, va_list arguments)
 {
@@ -21,6 +21,8 @@ int	printf_format(char format, va_list arguments)
 		len = printf_char(va_arg(arguments, int));
 	else if (format == 's')
 		len = printf_str(va_arg(arguments, char *));
+	else if (format == 'p')
+		len = printf_ptr(va_arg(arguments, unsigned long));
 	else if (format == 'd' || format == 'i')
 		len = printf_integer(va_arg(arguments, int));
 	else if (format == 'u')

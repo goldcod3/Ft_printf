@@ -72,7 +72,7 @@ $(NAME): $(FILES_OBJ)
 
 $(DIR_OBJ)%.o: $(DIR_SRC)%.c | $(DIRECTORIES)
 	@$(GC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
-	@echo "[$(YELLOW) *LIBFT* COMPILED OBJECT $(END_C)][$(GREEN)-->$(END_C)] $@"
+#	@echo "[$(YELLOW) *LIBFT* COMPILED OBJECT $(END_C)][$(GREEN)-->$(END_C)] $@"
 
 $(DIRECTORIES):
 	@mkdir -p $(DIR_OBJ)

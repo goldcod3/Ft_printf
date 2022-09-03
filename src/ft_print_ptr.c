@@ -1,60 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hex.c                                     :+:      :+:    :+:   */
+/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgomes-o <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 14:00:13 by lgomes-o          #+#    #+#             */
-/*   Updated: 2022/09/02 15:19:11 by lgomes-o         ###   ########.fr       */
+/*   Created: 2022/09/03 01:27:07 by lgomes-o          #+#    #+#             */
+/*   Updated: 2022/09/03 01:27:09 by lgomes-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t	ft_hexlen(unsigned int num)
+static size_t	ft_ptrlen(unsigned long lnum)
 {
 	size_t	len;
 
 	len = 0;
-	while (num > 0)
+	while (lnum > 0)
 	{
-		num /= 16;
+		lnum /= 16;
 		len++;
 	}
 	return (len);
 }
 
-static void	ft_puthex_fd(unsigned int num, const char format)
+static void	ft_putptr_fd(unsigned long lnum)
 {
-	if (num >= 16)
+	if (lnum >= 16)
 	{
-		ft_puthex_fd(num / 16, format);
-		ft_puthex_fd(num % 16, format);
+		ft_putptr_fd(lnum / 16);
+		ft_putptr_fd(lnum % 16);
 	}
 	else
 	{
-		if (num >= 10)
-			printf_char((num - 10) + format);
+		if (lnum >= 10)
+			printf_char((lnum - 10) + 'a');
 		else
-			printf_char(num + '0');
+			printf_char(lnum + '0');
 	}
 }
 
-size_t	printf_hex(unsigned int num, const char format)
+size_t	printf_ptr(unsigned long ptr)
 {
 	size_t	len;
 
-	len = 0;
-	if (num == 0)
-		len = write(1, "0", 1);
+	len = write(1, "0x", 2);
+	if (ptr == 0)
+		len += write(1, "0", 1);
 	else
 	{
-		if (format == 'x')
-			ft_puthex_fd(num, 'a');
-		else if (format == 'X')
-			ft_puthex_fd(num, 'A');
-		len = ft_hexlen(num);
-	}
+		len += ft_ptrlen(ptr);
+		ft_putptr_fd(ptr);
+	}	
 	return (len);
 }
