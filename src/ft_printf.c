@@ -29,6 +29,8 @@ int	printf_format(char format, va_list arguments)
 		len = printf_unsigned(va_arg(arguments, unsigned int));
 	else if (format == 'x' || format == 'X')
 		len = printf_hex(va_arg(arguments, unsigned int), format);
+	else if (format == '%')
+		len = printf_char('%');
 	else
 		len = printf_char(format);
 	return (len);
@@ -51,7 +53,7 @@ int	ft_printf(const char *str, ...)
 			length += printf_format(*(str + i), args);
 		}
 		else
-			length += printf_char(*(str + i));
+			length += write(1, (str + i), 1);
 		i++;
 	}
 	va_end(args);
