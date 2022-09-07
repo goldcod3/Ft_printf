@@ -23,7 +23,7 @@ static size_t	ft_unsignedlen(unsigned int num)
 		num /= 10;
 		len++;
 	}
-	return (len);
+	return (len + 1);
 }
 
 /* Function that return a string of a unsigned int variable. */
@@ -33,9 +33,10 @@ char	*ft_utoa(unsigned int num)
 	size_t	len;
 
 	len = ft_unsignedlen(num);
-	str = (char *) ft_calloc(len + 1, sizeof(char));
+	str = (char *) malloc(len * sizeof(char));
 	if (str == NULL)
 		return (NULL);
+	*(str + len--) = 0;
 	while (num >= 10)
 	{
 		*(str + len) = (num % 10) + '0';
