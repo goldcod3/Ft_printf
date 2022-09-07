@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+/*  Function that returns the length of a pointer variable. */
 static size_t	ft_ptrlen(unsigned long lnum)
 {
 	size_t	len;
@@ -25,6 +26,7 @@ static size_t	ft_ptrlen(unsigned long lnum)
 	return (len);
 }
 
+/* Recursive function that prints a pointer variable. */
 static void	ft_putptr_fd(unsigned long lnum)
 {
 	if (lnum >= 16)
@@ -41,6 +43,7 @@ static void	ft_putptr_fd(unsigned long lnum)
 	}
 }
 
+/* Function that prints a pointer variable and returns a length. */
 size_t	printf_ptr(unsigned long ptr)
 {
 	size_t	len;

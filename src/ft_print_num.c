@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+/* Function that returns a lenght of a unsigned int variable. */
 static size_t	ft_unsignedlen(unsigned int num)
 {
 	size_t	len;
@@ -25,6 +26,7 @@ static size_t	ft_unsignedlen(unsigned int num)
 	return (len);
 }
 
+/* Function that return a string of a unsigned int variable. */
 char	*ft_utoa(unsigned int num)
 {
 	char	*str;
@@ -44,6 +46,7 @@ char	*ft_utoa(unsigned int num)
 	return (str);
 }
 
+/* Function that print a unsigned int variable and returns the lenght.  */
 size_t	printf_unsigned(unsigned int unum)
 {
 	char	*str_unum;
@@ -61,6 +64,7 @@ size_t	printf_unsigned(unsigned int unum)
 	return (len);
 }
 
+/* Function that print a int variable and returns the lenght.  */
 size_t	printf_integer(int num)
 {
 	char	*str_num;

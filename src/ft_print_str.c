@@ -12,11 +12,13 @@
 
 #include "ft_printf.h"
 
+/* Function that print a char variable. */
 size_t	printf_char(char c)
 {
 	return (write(1, &c, 1));
 }
 
+/* Function that returns the length of a string variable. */
 static size_t	print_str(char *str)
 {
 	size_t	i;
@@ -30,6 +32,7 @@ static size_t	print_str(char *str)
 	return (i);
 }
 
+/* Function that print a string variable. */
 size_t	printf_str(char *str)
 {
 	size_t	i;

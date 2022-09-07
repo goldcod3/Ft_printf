@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+/* Function that evaluate the flags from printf. */
 int	printf_format(char format, va_list arguments)
 {
 	size_t	len;
@@ -36,6 +37,7 @@ int	printf_format(char format, va_list arguments)
 	return (len);
 }
 
+/* Function printf. */
 int	ft_printf(const char *str, ...)
 {
 	size_t		i;

@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+/* Function that returns a lenght of a hex variable. */
 static size_t	ft_hexlen(unsigned int num)
 {
 	size_t	len;
@@ -25,6 +26,7 @@ static size_t	ft_hexlen(unsigned int num)
 	return (len);
 }
 
+/* Recursive function that prints a hex variable. */
 static void	ft_puthex_fd(unsigned int num, const char format)
 {
 	if (num >= 16)
@@ -41,6 +43,7 @@ static void	ft_puthex_fd(unsigned int num, const char format)
 	}
 }
 
+/* Function that prints a hex variable and returns a length. */
 size_t	printf_hex(unsigned int num, const char format)
 {
 	size_t	len;
