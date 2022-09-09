@@ -24,7 +24,6 @@ FILES_SRC += $(addprefix $(DIR_PRINTF), $(FILES_PRINTF))
 DIR_OBJ = obj/
 FILES_OBJ = $(addprefix $(DIR_OBJ), $(addsuffix .o, $(FILES_PRINTF)))
 
-DIRECTORIES	= .cache_exists
 
 #####################
 ### PROGRAM RULES ###
@@ -36,14 +35,14 @@ $(NAME): $(FILES_OBJ)
 	@ar rsc $(NAME) $(FILES_OBJ)
 	@echo "[$(BLUE)> PRINT LIBRARY COMPILED $(END_C)][$(GREEN) SUCCESS! $(END_C)] $(NAME)"
 
-$(DIR_OBJ)%.o: $(DIR_PRINTF)%.c | $(DIRECTORIES)
+$(DIR_OBJ)%.o: $(DIR_PRINTF)%.c | DIRECTORIES
 	@make -C libft
 	@cp libft/libft.a .
 	@mv libft.a $(NAME)
 	@$(GC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
-#	@echo "[$(YELLOW) *PRINT* COMPILED OBJECT $(END_C)][$(GREEN)-->$(END_C)] $@"
+	@echo "[$(YELLOW) *PRINT* COMPILED OBJECT $(END_C)][$(GREEN)-->$(END_C)] $@"
 
-$(DIRECTORIES):
+DIRECTORIES:
 	@mkdir -p $(DIR_OBJ)
 
 

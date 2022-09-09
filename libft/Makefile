@@ -57,8 +57,6 @@ FILES_SRC += $(addprefix $(DIR_GNL), $(FILES_GNL))
 DIR_OBJ = obj/
 FILES_OBJ = $(addprefix $(DIR_OBJ), $(addsuffix .o, $(FILES_SRC)))
 
-DIRECTORIES	= .cache_exists
-
 
 #####################
 ### PROGRAM RULES ###
@@ -70,11 +68,11 @@ $(NAME): $(FILES_OBJ)
 	@ar rsc $(NAME) $(FILES_OBJ)
 	@echo "[$(BLUE)> LIBFT LIBRARY COMPILED $(END_C)][$(GREEN) SUCCESS! $(END_C)] $(NAME)"
 
-$(DIR_OBJ)%.o: $(DIR_SRC)%.c | $(DIRECTORIES)
+$(DIR_OBJ)%.o: $(DIR_SRC)%.c | DIRECTORIES
 	@$(GC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
-#	@echo "[$(YELLOW) *LIBFT* COMPILED OBJECT $(END_C)][$(GREEN)-->$(END_C)] $@"
+	@echo "[$(YELLOW) *LIBFT* COMPILED OBJECT $(END_C)][$(GREEN)-->$(END_C)] $@"
 
-$(DIRECTORIES):
+DIRECTORIES:
 	@mkdir -p $(DIR_OBJ)
 	@mkdir -p $(addprefix $(DIR_OBJ), $(DIR_IS))
 	@mkdir -p $(addprefix $(DIR_OBJ), $(DIR_LST))
